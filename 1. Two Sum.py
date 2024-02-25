@@ -1,6 +1,14 @@
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
-        for index in range(0,len(nums)):
+        dict = {} #hash map
+        for i,n in enumerate(nums):
+            if n in dict:
+                return dict[n],i
+            else:
+                dict[target-n]=i #dictionary of complements
+        
+"""
+    for index in range(0,len(nums)):
             #if nums[index] > target:
                 #continue
             #this speedup function doens't work due to negative numbers
@@ -9,4 +17,4 @@ class Solution:
                     #continue
                 if nums[index]+nums[index2]==target:
                     return [index,index2]
-                
+                """
